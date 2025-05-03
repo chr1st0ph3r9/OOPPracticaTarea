@@ -13,8 +13,10 @@ public class PlayerMovement : MonoBehaviour
 
     //para movimiento
     public Vector3 direccionMovimiento;
-    public Vector3 vectorDelante;
-    public Vector3 vectorLado;
+    public Vector2 inputDireccion;
+
+
+
     public float velocidadMovimiento = 10;
     public Rigidbody rb;
 
@@ -73,13 +75,14 @@ public class PlayerMovement : MonoBehaviour
     //movimiento de jugador
     private void movimientoBase(Vector2 direccionDeMovimiento)
     {
-        vectorDelante = Vector3.ProjectOnPlane(camara.forward, Vector3.up).normalized;
-        vectorLado = Vector3.ProjectOnPlane(camara.right, Vector3.up).normalized;
-        direccionMovimiento = (vectorDelante * direccionDeMovimiento.y + vectorLado * direccionDeMovimiento.x).normalized;
+
+        inputDireccion = direccionDeMovimiento;
+
     }
 
     private void logicaMovimiento()
     {
+        direccionMovimiento = (transform.forward * inputDireccion.y + transform.right * inputDireccion.x).normalized;
         //rb.linearVelocity
         rb.linearVelocity = (direccionMovimiento * velocidadMovimiento) * Time.fixedDeltaTime;
     }

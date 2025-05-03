@@ -94,6 +94,7 @@ public class MainInputMovementSO : ScriptableObject,InputSystem_Actions.IPlayerA
     public void OnLook(InputAction.CallbackContext context)
     {
         eventoMirar?.Invoke(context.ReadValue<Vector2>());
+
     }
 
     public void OnMove(InputAction.CallbackContext context)
