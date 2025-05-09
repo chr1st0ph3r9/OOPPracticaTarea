@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09bd9db544922e846bcee60e16793e3f, type: 3}
   m_Name: LanzaDeLuzSO
   m_EditorClassIdentifier: 
-  iconoHabilidad: {fileID: 0}
-  spriteIconoUI: {fileID: 0}
+  costoPorUso: 25
+  nombreHabilidad: Lanza de Luz
+  tiempoDeCooldown: 3
+  colorHabilidadNoDisponible: {r: 1, g: 1, b: 1, a: 0.3137255}
+  colorHabilidadDisponible: {r: 1, g: 1, b: 1, a: 1}
+  spriteIconoUI: {fileID: 21300000, guid: ef6a835cb8f072d47a6b3626d625d427, type: 3}
+  lanzaDeLuzPrefab: {fileID: 2911708565979046165, guid: 945f11d73d7c1db4892c78f28bf7e251, type: 3}
+  potencia: 50
