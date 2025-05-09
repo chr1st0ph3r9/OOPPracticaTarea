@@ -27,7 +27,7 @@ public class MagoOscuro : Jugable
 
     private void UsarHabilidadLanzaDeLuz()
     {
-        sistemaDeHabilidades.usarHabilidadLanzaLuz();
+        sistemaDeHabilidades.UsarHabilidadLanzaLuz();
 
     }
 

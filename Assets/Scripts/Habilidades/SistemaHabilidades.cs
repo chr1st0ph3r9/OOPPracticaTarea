@@ -11,55 +11,39 @@ public class SistemaHabilidades:MonoBehaviour
 
 
 
-
     //referencias para habilidad lanza luz
     [Header("referencias habilidad lanza de luz")]
-    [SerializeField]
-    private Image iconoLanzaLuz;
-    [SerializeField]
-    private Sprite spriteUILanzaLuz;
-    [SerializeField]
-    private TextMeshProUGUI nombreHabilidadLanzaLuzUI;
-    [SerializeField]
-    private Slider barraCooldownSliderLanzaLuzUI;
-    [SerializeField]
-    private GameObject lanzaLuzPrefab;
-    [SerializeField]
-    private Transform lugarDeCreacion;
-    //info necesaria para la lanza de luz
-    //iconoLanzaLuz, NombreLanzaLuzUI, barraCooldownSliderLanzaLuzUI, lanzaLuzPrefab, lugarDeCreacion,
+    [SerializeField]public LanzaDeLuz habilidadLanzaDeLuz;
+    [SerializeField]private TextMeshProUGUI nombreHabilidadLanzaLuzUI;
+    [SerializeField]private Transform lugarDeCreacion;
+    [SerializeField]private Image IconoHabilidadLanzaLuzUi;
 
-    public LanzaDeLuz habilidadLanzaDeLuz;
+
+    
 
     private void Awake()
     {
-
         enviarReferenciasHabilidadLanzaLuz();
-        setearUILanzaDeLuz();
-
-
-
+        SetearUILanzaDeLuz();
     }
     private void enviarReferenciasHabilidadLanzaLuz()
     {
         //agregando referencias de habilidad Lanza de Luz
-        habilidadLanzaDeLuz.IconoHabilidad = iconoLanzaLuz;
         habilidadLanzaDeLuz.NombreHabilidadUI = nombreHabilidadLanzaLuzUI;
-        habilidadLanzaDeLuz.BarraCooldownHabilidadUI = barraCooldownSliderLanzaLuzUI;
-        habilidadLanzaDeLuz.LanzaDeLuzPrefab = lanzaLuzPrefab;
         habilidadLanzaDeLuz.LugarDeCreacion = lugarDeCreacion;
-        habilidadLanzaDeLuz.SpriteIconoUI = spriteUILanzaLuz;
-        habilidadLanzaDeLuz.Potencia = 50;
+        habilidadLanzaDeLuz.IconoHabilidad=IconoHabilidadLanzaLuzUi;
     }
 
-    private void setearUILanzaDeLuz()
+    private void SetearUILanzaDeLuz()
     {
         habilidadLanzaDeLuz.ActualizarUI();
     }
-    public void usarHabilidadLanzaLuz()
+    public void UsarHabilidadLanzaLuz()
     {
         if (habilidadLanzaDeLuz.EstaDisponible==true)
         {
+            print("usamos habilidad lanza");
+
             habilidadLanzaDeLuz.CooldownHabilidadUI();
 
             GameObject creacionDeLanza = Instantiate(habilidadLanzaDeLuz.LanzaDeLuzPrefab);

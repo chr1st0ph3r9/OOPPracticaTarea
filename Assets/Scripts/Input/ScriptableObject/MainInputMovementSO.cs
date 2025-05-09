@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[CreateAssetMenu(fileName ="nuevo InputReaderSO", menuName ="InputReaderSO", order =0)]
+[CreateAssetMenu(fileName ="nuevo InputReaderSO", menuName ="InputReaderSO")]
 public class MainInputMovementSO : ScriptableObject,InputSystem_Actions.IPlayerActions
 {
 

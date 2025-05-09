@@ -6,50 +6,31 @@ using UnityEngine.UI;
 public abstract class Habilidad :ScriptableObject
 {
 
-    protected int costoPorUso;
-    protected string nombreHabilidad;
+    [SerializeField] protected int costoPorUso;
+    [SerializeField] protected string nombreHabilidad;
+    [SerializeField] protected int tiempoDeCooldown;
 
-    private bool estaDisponible;
-    protected int tiempoDeCooldown;
-    protected Color colorHabilidadNoDisponible = new Color(1, 1, 1, 0.5f);
-    protected Color colorHabilidadDisponible = new Color(1, 1, 1, 1);
-
-    [SerializeField]
+    
+    public int TiempoDeCooldown { get => tiempoDeCooldown; set => tiempoDeCooldown = value; }
+    [SerializeField] protected Color colorHabilidadNoDisponible = new Color(1, 1, 1, 0.5f);
+    [SerializeField] protected Color colorHabilidadDisponible = new Color(1, 1, 1, 1);
     protected Image iconoHabilidad;
     public Image IconoHabilidad { get => iconoHabilidad; set => iconoHabilidad = value; }
-
-    [SerializeField]
-    protected Sprite spriteIconoUI;
-    public Sprite SpriteIconoUI { get => spriteIconoUI; set => spriteIconoUI = value; }
-
-
+    [SerializeField]protected Sprite spriteIconoUI;
     protected TextMeshProUGUI nombreHabilidadUI;
     public TextMeshProUGUI NombreHabilidadUI { get => nombreHabilidadUI; set => nombreHabilidadUI = value; }
-
- 
-    protected Slider barraCooldownHabilidadUI;
-    public Slider BarraCooldownHabilidadUI { get => barraCooldownHabilidadUI; set => barraCooldownHabilidadUI = value; }
+    private bool estaDisponible;
     public bool EstaDisponible { get => estaDisponible; set => estaDisponible = value; }
-    public int TiempoDeCooldown { get => tiempoDeCooldown; set => tiempoDeCooldown = value; }
 
 
-
-    //protected Habilidad (int costoPorUso, string nombreHabilidad,  bool estaDisponible, int tiempoDeCooldown)
-    //{
-    //    this.costoPorUso = costoPorUso;
-    //    this.nombreHabilidad = nombreHabilidad;
-    //    this.estaDisponible = estaDisponible;
-    //    this.tiempoDeCooldown = tiempoDeCooldown;
-
-    //}
 
 
     //usar al inicio del juego
     public void ActualizarUI()
     {
         nombreHabilidadUI.text = nombreHabilidad;
-        IconoHabilidad.sprite = SpriteIconoUI;
-        
+        IconoHabilidad.sprite = spriteIconoUI;
+        EstaDisponible=true;
     }
 
     //llamar al usar la habilidad
@@ -60,9 +41,6 @@ public abstract class Habilidad :ScriptableObject
 
         estaDisponible = false;
 
-        
-
-        
     }
 
     //llamar al final del cooldown para poner la habilidad disponible
