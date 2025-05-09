@@ -49,6 +49,11 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(Vector3.up * anguloX);
 
     }
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 
     private void Awake()
     {

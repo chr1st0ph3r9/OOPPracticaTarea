@@ -17,11 +17,21 @@ public class MainInputMovementSO : ScriptableObject,InputSystem_Actions.IPlayerA
     public event inputAxisAction eventoMoverHorizontal;
     public event inputAxisAction eventoMirar;
 
-    public delegate void inputAtaqueAction();
+    public delegate void inputTipoAction();
 
-    public event inputAtaqueAction eventoAtaqueIniciado;
-    public event inputAtaqueAction eventoAtaqueCompletado;
-    public event inputAtaqueAction eventoAtaqueCancelado;
+    //eventos para el ataque
+    public event inputTipoAction eventoAtaqueIniciado;
+    public event inputTipoAction eventoAtaqueCompletado;
+    public event inputTipoAction eventoAtaqueCancelado;
+
+    //eventos para la habilidad 1
+    public event inputTipoAction eventoHabilidad1Iniciado;
+
+    //eventos para la habilidad 2
+    public event inputTipoAction eventoHabilidad2Iniciado;
+
+    //eventos para la habilidad 3
+    public event inputTipoAction eventoHabilidad3Iniciado;
 
 
 
@@ -76,15 +86,8 @@ public class MainInputMovementSO : ScriptableObject,InputSystem_Actions.IPlayerA
         }
     }
 
-    public void OnCrouch(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
 
-    public void OnInteract(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
+
 
     public void OnJump(InputAction.CallbackContext context)
     {
@@ -102,20 +105,37 @@ public class MainInputMovementSO : ScriptableObject,InputSystem_Actions.IPlayerA
         eventoMoverHorizontal?.Invoke(context.ReadValue<Vector2>());
     }
 
-    public void OnNext(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
 
-    public void OnPrevious(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
 
     public void OnSprint(InputAction.CallbackContext context)
     {
         throw new System.NotImplementedException();
     }
 
+    public void OnHabilidad1(InputAction.CallbackContext context)
+    {
 
+        if (context.phase == InputActionPhase.Started)
+        {
+            eventoHabilidad1Iniciado?.Invoke();
+        }
+
+
+    }
+
+    public void OnHabilidad2(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            eventoHabilidad2Iniciado?.Invoke();
+        }
+    }
+
+    public void OnHabilidad3(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            eventoHabilidad3Iniciado?.Invoke();
+        }
+    }
 }
