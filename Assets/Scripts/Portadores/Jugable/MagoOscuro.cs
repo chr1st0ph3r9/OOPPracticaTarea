@@ -21,6 +21,11 @@ public class MagoOscuro : Jugable
     private int _costoHabilidadPilarArcano;
     private bool _puedeUsarPilarArcano;
 
+    //info habilidad Curacion
+    private int _costoHabilidadCuracion;
+    private bool _puedeUsarCuracion;
+    private int _cantidadCuracion;
+
 
 
 
@@ -29,6 +34,8 @@ public class MagoOscuro : Jugable
 
         inputReader.eventoHabilidad1Iniciado += UsarHabilidadLanzaDeLuz;
         inputReader.eventoHabilidad2Iniciado += UsarHabilidadPilarArcano;
+        inputReader.eventoHabilidad3Iniciado += UsarHabilidadCuracion;
+        base.eventoRecibirDamage += actualizarUIDamage;
 
         //base.eventoCeroVida -= Destruir;
 
@@ -39,6 +46,10 @@ public class MagoOscuro : Jugable
         
         inputReader.eventoHabilidad1Iniciado -= UsarHabilidadLanzaDeLuz;
         inputReader.eventoHabilidad2Iniciado -= UsarHabilidadPilarArcano;
+        inputReader.eventoHabilidad3Iniciado -= UsarHabilidadCuracion;
+
+        base.eventoRecibirDamage -= actualizarUIDamage;
+
 
 
 
@@ -52,6 +63,9 @@ public class MagoOscuro : Jugable
 
         _costoHabilidadLanzaLuz = sistemaDeHabilidades.ObtenerCostoHabilidadLanzaLuz();
         _costoHabilidadPilarArcano = sistemaDeHabilidades.ObtenerCostoHabilidadPilarArcano();
+        _costoHabilidadCuracion = sistemaDeHabilidades.ObtenerCostoHabilidadCuracion();
+        _cantidadCuracion = sistemaDeHabilidades.ObtenerCantidadHabilidadCuracion();
+
 
 
 
@@ -79,9 +93,30 @@ public class MagoOscuro : Jugable
         }
 
     }
+
+    private void UsarHabilidadCuracion()
+    {
+        _puedeUsarCuracion = sistemaDeHabilidades.ObtenerEstadoCuracion();
+        if (base.sistemaDeVida.CantidadActual > _costoHabilidadCuracion && _puedeUsarCuracion && base.sistemaDeVida.CantidadActual<base.sistemaDeVida.CantidadMaxima)
+        {
+
+            sistemaDeHabilidades.UsarHabilidadCuracion();
+            sistemaDeVida.CantidadActual += _cantidadCuracion;
+            RestarCosto(_costoHabilidadCuracion);
+            actualizarUIDamage();
+        }
+
+    }
     private void RestarCosto(int costo)
     {
         base.sistemaDeVida.CantidadActual -= costo;
+        sliderDeVida.value = base.sistemaDeVida.CantidadActual;
+
+    }
+
+
+    private void actualizarUIDamage()
+    {
         sliderDeVida.value = base.sistemaDeVida.CantidadActual;
 
     }

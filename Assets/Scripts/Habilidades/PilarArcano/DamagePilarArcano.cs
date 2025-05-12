@@ -1,9 +1,11 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class DamagePilarArcano : MonoBehaviour
 {
-    public LayerMask enemigo;
-    public LayerMask jugador;
+    [SerializeField] private LayerMask enemigo;
+    [SerializeField] private LayerMask jugador;
+    [SerializeField] private int damage=1;
 
     private void OnTriggerStay(Collider other)
     {
@@ -14,8 +16,9 @@ public class DamagePilarArcano : MonoBehaviour
 
             if (other.gameObject.TryGetComponent<IRecibirDamage>(out IRecibirDamage objetivo))
             {
-                objetivo.RecibirDamage(1);
-                print("esta haciendo 1 de daño a: " + objetivo);
+                objetivo.RecibirDamage(damage);
+
+            
             }
         //}
     }

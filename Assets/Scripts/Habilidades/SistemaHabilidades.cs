@@ -25,11 +25,20 @@ public class SistemaHabilidades:MonoBehaviour
     [Header("referencias habilidad Pilar arcano")]
     [SerializeField] private PilarArcanoSO _habilidadPilarArcano;
     public PilarArcanoSO HabilidadPilarArcano { get => _habilidadPilarArcano; set => _habilidadPilarArcano = value; }
+
     [SerializeField] private TextMeshProUGUI nombreHabilidadPilarArcanoUI;
     [SerializeField] private Image iconoHabilidadPilarArcanoUI;
     [SerializeField] private Transform lugarDeCreacionPilarArcano;
 
     private int _tiempoPilarArcano;
+
+    //referencias Curacion
+    [Header("referencias habilidad Curacion")]
+    [SerializeField] private CuracionHabilidadSOScript habilidadCuracion;
+    public CuracionHabilidadSOScript HabilidadCuracion { get => habilidadCuracion; set => habilidadCuracion = value; }
+    [SerializeField] private TextMeshProUGUI nombreHabilidadCuracionUI;
+    [SerializeField] private Image iconoHabilidadCuracionUI;
+
 
 
 
@@ -38,10 +47,12 @@ public class SistemaHabilidades:MonoBehaviour
         //envia referencias de UI a las habilidades
         enviarReferenciasHabilidadLanzaLuz();
         EnviarReferenciasHabilidadPilarArcano();
+        EnviarReferenciasHabilidadCuracion();
 
         //coloca los valores a las referencias de UI
         habilidadLanzaDeLuz.SetearUI();
         HabilidadPilarArcano.SetearUI();
+        HabilidadCuracion.SetearUI();
 
         _tiempoPilarArcano = HabilidadPilarArcano.TiempoHabilidad;
     }
@@ -99,7 +110,6 @@ public class SistemaHabilidades:MonoBehaviour
     {
         if (HabilidadPilarArcano.EstaDisponible == true)
         {
-            print("la habilidad pilar arcano esta disponible: "+HabilidadPilarArcano.EstaDisponible);
             HabilidadPilarArcano.Usar();
             Invoke("ActivarHabilidadPilarArcano", HabilidadPilarArcano.TiempoDeCooldown);
             Invoke("DestruirPilarArcano", _tiempoPilarArcano);
@@ -124,6 +134,48 @@ public class SistemaHabilidades:MonoBehaviour
     private void ActivarHabilidadPilarArcano()
     {
         HabilidadPilarArcano.recargarCooldown();
+    }
+
+
+    #endregion
+
+
+
+
+    #region habilidad curacion
+
+    private void EnviarReferenciasHabilidadCuracion()
+    {
+        HabilidadCuracion.NombreHabilidadUI = nombreHabilidadCuracionUI;
+        HabilidadCuracion.IconoHabilidad = iconoHabilidadCuracionUI;
+
+    }
+    public void UsarHabilidadCuracion()
+    {
+        if (habilidadCuracion.EstaDisponible == true)
+        {
+            HabilidadCuracion.Usar();
+            Invoke("ActivarHabilidadCuracion", HabilidadCuracion.TiempoDeCooldown);
+        }
+
+    }
+    public int ObtenerCantidadHabilidadCuracion()
+    {
+        return HabilidadCuracion.CantidadParaCurar;
+    }
+
+    public int ObtenerCostoHabilidadCuracion()
+    {
+        return HabilidadCuracion.CostoPorUso;
+    }
+    public bool ObtenerEstadoCuracion()
+    {
+        return HabilidadCuracion.EstaDisponible;
+
+    }
+    private void ActivarHabilidadCuracion()
+    {
+        HabilidadCuracion.recargarCooldown();
     }
 
 
