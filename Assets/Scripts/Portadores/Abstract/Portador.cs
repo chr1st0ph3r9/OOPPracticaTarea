@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class Portador : MonoBehaviour, IRecibirDamage
 {
     public delegate void tipoEventoMuerte();
-    public event tipoEventoMuerte eventoMorirEnemigo;
+    public event tipoEventoMuerte eventoCeroVida;
 
 
 
@@ -12,6 +12,6 @@ public abstract class Portador : MonoBehaviour, IRecibirDamage
     public void RecibirDamage(int cantidadDamage)
     {
         sistemaDeVida.CantidadActual -= cantidadDamage;
-        eventoMorirEnemigo?.Invoke();
+        eventoCeroVida?.Invoke();
     }
 }

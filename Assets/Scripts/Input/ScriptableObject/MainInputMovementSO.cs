@@ -112,6 +112,8 @@ public class MainInputMovementSO : ScriptableObject,InputSystem_Actions.IPlayerA
         throw new System.NotImplementedException();
     }
 
+    
+
     public void OnHabilidad1(InputAction.CallbackContext context)
     {
 

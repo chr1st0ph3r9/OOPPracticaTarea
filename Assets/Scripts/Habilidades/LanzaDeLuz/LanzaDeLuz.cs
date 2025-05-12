@@ -16,5 +16,23 @@ public class LanzaDeLuz : Habilidad, IUsar
     public void Usar()
     {
 
+            //print("usamos habilidad lanza");
+
+            
+
+            GameObject creacionDeLanza = Instantiate(LanzaDeLuzPrefab);
+            creacionDeLanza.transform.position = lugarDeCreacion.position;
+            creacionDeLanza.transform.rotation = lugarDeCreacion.rotation;
+
+            if (creacionDeLanza.TryGetComponent<Rigidbody>(out Rigidbody rb))
+            {
+                rb.AddForce(lugarDeCreacion.forward * Potencia, ForceMode.Impulse);
+            }
+
+            base.CooldownHabilidadUI();
+        
+            //Invoke("ActivarHabilidadLanzaLuz", base.TiempoDeCooldown);
+        
+
     }
 }

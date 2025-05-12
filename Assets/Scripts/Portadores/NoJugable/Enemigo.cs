@@ -5,17 +5,16 @@ public class Enemigo : Portador
 {
     void Awake()
     {
-        base.eventoMorirEnemigo+=Destruir;
+        base.eventoCeroVida += Destruir;
     }
     void OnDisable()
     {
-        base.eventoMorirEnemigo-=Destruir;
+        base.eventoCeroVida -= Destruir;
     }
-    public void RecibirDamageEnemigo(int cantidadDeDamage){
-        this.RecibirDamage(cantidadDeDamage);
-    }
+
    public void Destruir()
     {
+        print("se llamo al evento para verificar si se destruye");
         if(sistemaDeVida.CantidadActual<=0)
         {
         Destroy(gameObject);

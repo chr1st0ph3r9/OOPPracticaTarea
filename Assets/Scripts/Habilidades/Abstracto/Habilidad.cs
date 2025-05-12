@@ -21,12 +21,13 @@ public abstract class Habilidad :ScriptableObject
     public TextMeshProUGUI NombreHabilidadUI { get => nombreHabilidadUI; set => nombreHabilidadUI = value; }
     private bool estaDisponible;
     public bool EstaDisponible { get => estaDisponible; set => estaDisponible = value; }
+    public int CostoPorUso { get => costoPorUso; set => costoPorUso = value; }
 
 
 
 
     //usar al inicio del juego
-    public void ActualizarUI()
+    public void SetearUI()
     {
         nombreHabilidadUI.text = nombreHabilidad;
         IconoHabilidad.sprite = spriteIconoUI;
@@ -51,4 +52,5 @@ public abstract class Habilidad :ScriptableObject
 
         estaDisponible = true;
     }
+
 }

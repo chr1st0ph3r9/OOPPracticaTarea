@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 564ca20847d16ee4eb567030679b7346, type: 3}
+  m_Name: NewPilarArcanoSO
+  m_EditorClassIdentifier: 
+  costoPorUso: 10
+  nombreHabilidad: Pilar Arcano
+  tiempoDeCooldown: 10
+  colorHabilidadNoDisponible: {r: 1, g: 1, b: 1, a: 0.5}
+  colorHabilidadDisponible: {r: 1, g: 1, b: 1, a: 1}
+  spriteIconoUI: {fileID: 21300000, guid: 6234b3513142afb4e80de96fd92d100a, type: 3}
+  _pilarArcanoPrefab: {fileID: 4311910194206008288, guid: 977041a8287c71c4db8594c045514727, type: 3}
+  _tiempoHabilidad: 10
+  distanciaDeJugador: 10
