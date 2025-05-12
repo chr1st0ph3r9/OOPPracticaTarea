@@ -19,11 +19,6 @@ public class MainInputMovementSO : ScriptableObject,InputSystem_Actions.IPlayerA
 
     public delegate void inputTipoAction();
 
-    //eventos para el ataque
-    public event inputTipoAction eventoAtaqueIniciado;
-    public event inputTipoAction eventoAtaqueCompletado;
-    public event inputTipoAction eventoAtaqueCancelado;
-
     //eventos para la habilidad 1
     public event inputTipoAction eventoHabilidad1Iniciado;
 
@@ -57,42 +52,12 @@ public class MainInputMovementSO : ScriptableObject,InputSystem_Actions.IPlayerA
     }
 
 
-    public void OnAttack(InputAction.CallbackContext context)
-    {
-        switch (context.phase)
-        {
-            case InputActionPhase.Started:
-
-                Debug.Log("empezo ataque");
-                eventoAtaqueIniciado?.Invoke();
-
-                break;
-
-            case InputActionPhase.Performed:
-
-                Debug.Log("completo ataque");
-                eventoAtaqueCompletado?.Invoke();
-
-                break;
-
-            case InputActionPhase.Canceled:
-
-                Debug.Log("cancelo ataque");
-                eventoAtaqueCancelado?.Invoke();
-
-                break;
-
-
-        }
-    }
 
 
 
 
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
+
+
 
     public void OnLook(InputAction.CallbackContext context)
     {
@@ -107,10 +72,7 @@ public class MainInputMovementSO : ScriptableObject,InputSystem_Actions.IPlayerA
 
 
 
-    public void OnSprint(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
+
 
     
 
