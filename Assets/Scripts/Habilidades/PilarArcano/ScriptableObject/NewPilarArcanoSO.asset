@@ -17,7 +17,7 @@ MonoBehaviour:
   tiempoDeCooldown: 10
   colorHabilidadNoDisponible: {r: 1, g: 1, b: 1, a: 0.5}
   colorHabilidadDisponible: {r: 1, g: 1, b: 1, a: 1}
-  spriteIconoUI: {fileID: 21300000, guid: 6234b3513142afb4e80de96fd92d100a, type: 3}
+  spriteIconoUI: {fileID: 21300000, guid: abc4bb9a4dfddf741bf72aef9c3625e5, type: 3}
   _pilarArcanoPrefab: {fileID: 4311910194206008288, guid: 977041a8287c71c4db8594c045514727, type: 3}
   _tiempoHabilidad: 10
   distanciaDeJugador: 10

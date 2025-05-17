@@ -17,5 +17,5 @@ MonoBehaviour:
   tiempoDeCooldown: 15
   colorHabilidadNoDisponible: {r: 1, g: 1, b: 1, a: 0.5}
   colorHabilidadDisponible: {r: 1, g: 1, b: 1, a: 1}
-  spriteIconoUI: {fileID: 21300000, guid: 58e1b3bd5c1284a4788b69593b0400d0, type: 3}
+  spriteIconoUI: {fileID: 21300000, guid: 061d6afc14ffcfb448c4af0dff78e196, type: 3}
   cantidadParaCurar: 20
