@@ -3,15 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class MenuSystem : MonoBehaviour
 {
-   void Jugar()
+   public void Jugar()
    {
-    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
    }
 
-   void Salir()
+   public void Salir()
    {
-    Console.WriteLine("Saliendo del juego...");
-    Application.Quit();
+      debug.log("Saliendo del juego...");
+      Application.Quit();
    }
     
 }
