@@ -17,6 +17,6 @@ MonoBehaviour:
   tiempoDeCooldown: 3
   colorHabilidadNoDisponible: {r: 1, g: 1, b: 1, a: 0.3137255}
   colorHabilidadDisponible: {r: 1, g: 1, b: 1, a: 1}
-  spriteIconoUI: {fileID: 21300000, guid: ef6a835cb8f072d47a6b3626d625d427, type: 3}
+  spriteIconoUI: {fileID: 21300000, guid: 55b670e658967444aaa228a0ad4e43f3, type: 3}
   lanzaDeLuzPrefab: {fileID: 2911708565979046165, guid: 945f11d73d7c1db4892c78f28bf7e251, type: 3}
   potencia: 50
